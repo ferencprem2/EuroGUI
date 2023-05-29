@@ -23,11 +23,32 @@ namespace EuroGUI
             this.pontszam = pontszam;
 
         }
+        public Music(string eloado, string cim)
+        {
+            this.eloado = eloado;
+            this.cim= cim;
+        }
 
-        public int Ev { get; set; }
-        public string Eloado { get; set; }
-        public string Cim { get; set; }
-        public int Helyezes { get; set; }
-        public int Pontszam { get; set; }
+        public static string FormattedString(List<Music> dataList)
+        {
+            List<string> formattedSongs = new();
+
+            foreach (var song in dataList)
+            {
+                formattedSongs.Add($"{song.eloado} - {song.cim}");
+            }
+
+
+            string result = string.Join(", ", formattedSongs);
+
+            return result;
+        }
+
+        public int Ev { get => ev; set => ev = value; }
+        public string Eloado { get => eloado; set => eloado = value; }
+        public string Cim { get => cim; set => cim = value; }
+        public int Helyezes { get => helyezes; set => helyezes = value; }
+        public int Pontszam { get => pontszam; set => pontszam = value; }
     }
+    
 }
